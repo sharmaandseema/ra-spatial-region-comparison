@@ -1,0 +1,429 @@
+
+Running: 00_setup.R 
+          folder exists
+1        scripts   TRUE
+2       data_raw   TRUE
+3 data_processed   TRUE
+4        results   TRUE
+5        figures   TRUE
+6           docs   TRUE
+
+Setup script saved: TRUE 
+Session record saved: TRUE 
+
+Running: 01_import_source_data.R 
+                       check passed
+1            Archive present   TRUE
+2   Archive checksum matches   TRUE
+3 Sample spreadsheet present   TRUE
+4        Source record saved   TRUE
+
+Running: 02_create_region_manifest.R 
+-/                                                                            /                                                                            -                                                                               region_id patient_id n_tiff n_masks pilot_region
+    A-Zone1a   Patient1     45       1         TRUE
+    A-Zone1b   Patient1     45       1        FALSE
+ A-Zone2cbis   Patient1     45       1        FALSE
+     C-Zone1   Patient3     45       1         TRUE
+     C-Zone2   Patient3     45       1        FALSE
+     E-Zone1   Patient5     45       1        FALSE
+    E-Zone2a   Patient5     45       1        FALSE
+    E-Zone2b   Patient5     45       1        FALSE
+    E-Zone2c   Patient5     45       1        FALSE
+     G-Zone1   Patient6     45       1        FALSE
+    G-Zone2a   Patient6     45       1        FALSE
+    G-Zone2b   Patient6     45       1        FALSE
+    G-Zone2c   Patient6     45       1        FALSE
+
+Manifest saved: TRUE 
+
+Running: 03_extract_pilot_regions.R 
+ region_id expected_files files_present all_present
+  A-Zone1a             45            45        TRUE
+   C-Zone1             45            45        TRUE
+
+Running: 04_check_pilot_images.R 
+ region_id image rows columns minimum maximum positive_mask_labels
+  A-Zone1a  DNA1 1298     439       0    2635                   NA
+  A-Zone1a  CD68 1298     439       0      49                   NA
+  A-Zone1a   CD3 1298     439       0      23                   NA
+  A-Zone1a  CD31 1298     439       0      23                   NA
+  A-Zone1a  mask 1298     439       0    3784                 3784
+   C-Zone1  DNA1 1307     896       0     322                   NA
+   C-Zone1  CD68 1307     896       0      55                   NA
+   C-Zone1   CD3 1307     896       0      35                   NA
+   C-Zone1  CD31 1307     896       0      51                   NA
+   C-Zone1  mask 1307     896       0    5501                 5501
+
+Image checks saved: TRUE 
+
+Running: 05_review_CZone1_segmentation.R 
+Crop rows: 579 728 
+Crop columns: 374 523 
+Figure saved: TRUE 
+
+Running: 06_check_pilot_masks.R 
+ region_id objects minimum_area_pixels median_area_pixels maximum_area_pixels
+  A-Zone1a    3784                   4                 43                 138
+   C-Zone1    5501                   4                 54                 251
+ zero_label_percent edge_objects
+               70.4           25
+               73.7           86
+
+Object QC saved: TRUE 
+Mask summary saved: TRUE 
+
+Running: 07_measure_pilot_regions.R 
+Objects measured per region:
+
+A-Zone1a  C-Zone1 
+    3784     5501 
+
+First six rows:
+   object_id region_id patient_id mask_label area_pixels  x_column    y_row
+ A-Zone1a__1  A-Zone1a   Patient1          1          17  33.82353 1.764706
+ A-Zone1a__2  A-Zone1a   Patient1          2          40 100.22500 2.775000
+ A-Zone1a__3  A-Zone1a   Patient1          3           9 184.00000 1.555556
+ A-Zone1a__4  A-Zone1a   Patient1          4           8 223.00000 1.375000
+ A-Zone1a__5  A-Zone1a   Patient1          5          22 237.50000 2.363636
+ A-Zone1a__6  A-Zone1a   Patient1          6          25 248.72000 2.280000
+ touches_image_edge DNA1_mean CD68_mean  CD3_mean CD31_mean
+               TRUE  7.411765 0.2352941 0.4117647 0.0000000
+               TRUE 12.250000 0.4750000 0.2000000 0.0500000
+               TRUE 12.444444 1.2222222 0.5555556 0.0000000
+               TRUE 16.500000 1.0000000 0.0000000 0.2500000
+               TRUE 26.818182 1.0909091 0.2727273 0.1818182
+               TRUE 24.520000 0.7200000 0.2000000 0.0400000
+
+Measurement table saved: TRUE 
+
+Running: 08_plot_pilot_CD68_comparison.R 
+Comparison figure saved: TRUE 
+
+Running: 09_summarise_pilot_regions.R 
+ region_id patient_id marker number_of_objects mean_signal percentile_25
+  A-Zone1a   Patient1   CD68              3784      0.7885       0.35267
+  A-Zone1a   Patient1    CD3              3784      0.5517       0.27500
+  A-Zone1a   Patient1   CD31              3784      0.1519       0.05556
+   C-Zone1   Patient3   CD68              5501      0.8556       0.27451
+   C-Zone1   Patient3    CD3              5501      0.2392       0.08108
+   C-Zone1   Patient3   CD31              5501      0.2816       0.08108
+ median_signal percentile_75
+        0.5966        1.0000
+        0.4643        0.7333
+        0.1064        0.1923
+        0.5306        1.0857
+        0.1429        0.2703
+        0.1864        0.3690
+
+Region summary saved: TRUE 
+
+Running: 10_extract_active_regions.R 
+   region_id patient_id expected_files files_present all_present
+    A-Zone1a   Patient1             45            45        TRUE
+    A-Zone1b   Patient1             45            45        TRUE
+ A-Zone2cbis   Patient1             45            45        TRUE
+     C-Zone1   Patient3             45            45        TRUE
+     C-Zone2   Patient3             45            45        TRUE
+     E-Zone1   Patient5             45            45        TRUE
+    E-Zone2a   Patient5             45            45        TRUE
+    E-Zone2b   Patient5             45            45        TRUE
+    E-Zone2c   Patient5             45            45        TRUE
+     G-Zone1   Patient6             45            45        TRUE
+    G-Zone2a   Patient6             45            45        TRUE
+    G-Zone2b   Patient6             45            45        TRUE
+    G-Zone2c   Patient6             45            45        TRUE
+
+Extraction checks saved: TRUE 
+
+Running: 11_check_active_masks.R 
+   region_id patient_id rows columns objects median_area_pixels
+    A-Zone1a   Patient1 1298     439    3784                 43
+    A-Zone1b   Patient1  564     584    1711                 45
+ A-Zone2cbis   Patient1  779     283    2372                 43
+     C-Zone1   Patient3 1307     896    5501                 54
+     C-Zone2   Patient3 1198     808    3788                 53
+     E-Zone1   Patient5 1019     972    8305                 57
+    E-Zone2a   Patient5  981     650    3763                 56
+    E-Zone2b   Patient5  457     256     839                 54
+    E-Zone2c   Patient5  529     584    1934                 61
+     G-Zone1   Patient6 1261     797    6989                 49
+    G-Zone2a   Patient6  643     497    2395                 43
+    G-Zone2b   Patient6  410     530     855                 51
+    G-Zone2c   Patient6  587     647    1546                 52
+ zero_label_percent edge_objects edge_percent
+               70.4           25          0.7
+               75.5           27          1.6
+               48.6           60          2.5
+               73.7           86          1.6
+               78.2           64          1.7
+               49.4          105          1.3
+               65.8           43          1.1
+               59.4           35          4.2
+               59.4           90          4.7
+               64.6           62          0.9
+               67.5            4          0.2
+               79.6           29          3.4
+               78.2           53          3.4
+
+Object QC saved: TRUE 
+Mask summary saved: TRUE 
+
+Running: 12_measure_active_regions.R 
+Measuring: A-Zone1a 
+Measuring: A-Zone1b 
+Measuring: A-Zone2cbis 
+Measuring: C-Zone1 
+Measuring: C-Zone2 
+Measuring: E-Zone1 
+Measuring: E-Zone2a 
+Measuring: E-Zone2b 
+Measuring: E-Zone2c 
+Measuring: G-Zone1 
+Measuring: G-Zone2a 
+Measuring: G-Zone2b 
+Measuring: G-Zone2c 
+
+Objects measured per region:
+
+   A-Zone1a    A-Zone1b A-Zone2cbis     C-Zone1     C-Zone2     E-Zone1 
+       3784        1711        2372        5501        3788        8305 
+   E-Zone2a    E-Zone2b    E-Zone2c     G-Zone1    G-Zone2a    G-Zone2b 
+       3763         839        1934        6989        2395         855 
+   G-Zone2c 
+       1546 
+
+Total measured objects: 43782 
+Measurement table saved: TRUE 
+Image checks saved: TRUE 
+
+Running: 13_summarise_active_regions.R 
+Number of region-marker summaries: 39 
+
+CD68 summaries:
+   region_id patient_id number_of_objects mean_signal median_signal
+    A-Zone1a   Patient1              3784      0.7885        0.5966
+    A-Zone1b   Patient1              1711      0.8661        0.6290
+ A-Zone2cbis   Patient1              2372      0.9895        0.8979
+     C-Zone1   Patient3              5501      0.8556        0.5306
+     C-Zone2   Patient3              3788      1.6831        1.0357
+     E-Zone1   Patient5              8305      3.1433        2.2647
+    E-Zone2a   Patient5              3763      2.5530        1.6522
+    E-Zone2b   Patient5               839      3.8973        3.3134
+    E-Zone2c   Patient5              1934      2.1981        1.8463
+     G-Zone1   Patient6              6989      1.9968        1.1148
+    G-Zone2a   Patient6              2395      0.7464        0.5342
+    G-Zone2b   Patient6               855      0.4608        0.2500
+    G-Zone2c   Patient6              1546      0.5264        0.2826
+
+Region summary saved: TRUE 
+
+Running: 14_plot_region_signal_summaries.R 
+Region-summary figure saved: TRUE 
+
+Running: 15_summarise_patient_signals.R 
+CD68 patient summaries:
+ patient_id marker number_of_regions median_of_region_medians
+   Patient1   CD68                 3                   0.6290
+   Patient3   CD68                 2                   0.7832
+   Patient5   CD68                 4                   2.0555
+   Patient6   CD68                 4                   0.4084
+ minimum_region_median maximum_region_median
+                0.5966                0.8979
+                0.5306                1.0357
+                1.6522                3.3134
+                0.2500                1.1148
+
+Patient summary saved: TRUE 
+
+Running: 16_measure_active_neighbours.R 
+Calculating distances: A-Zone1a 
+Calculating distances: A-Zone1b 
+Calculating distances: A-Zone2cbis 
+Calculating distances: C-Zone1 
+Calculating distances: C-Zone2 
+Calculating distances: E-Zone1 
+Calculating distances: E-Zone2a 
+Calculating distances: E-Zone2b 
+Calculating distances: E-Zone2c 
+Calculating distances: G-Zone1 
+Calculating distances: G-Zone2a 
+Calculating distances: G-Zone2b 
+Calculating distances: G-Zone2c 
+   region_id patient_id number_of_objects median_distance_pixels
+    A-Zone1a   Patient1              3784                  5.924
+    A-Zone1b   Patient1              1711                  6.152
+ A-Zone2cbis   Patient1              2372                  5.952
+     C-Zone1   Patient3              5501                  7.001
+     C-Zone2   Patient3              3788                  7.174
+     E-Zone1   Patient5              8305                  6.555
+    E-Zone2a   Patient5              3763                  6.465
+    E-Zone2b   Patient5               839                  6.503
+    E-Zone2c   Patient5              1934                  6.901
+     G-Zone1   Patient6              6989                  6.415
+    G-Zone2a   Patient6              2395                  6.098
+    G-Zone2b   Patient6               855                  6.902
+    G-Zone2c   Patient6              1546                  7.070
+ mean_distance_pixels percentile_90_pixels maximum_distance_pixels
+                6.482                8.623                   44.44
+                6.937                9.482                   35.10
+                6.169                8.088                   37.52
+                7.555               10.240                   73.26
+                8.133               12.705                   36.92
+                6.713                8.441                  236.90
+                6.652                8.383                   22.46
+                6.834                8.591                   39.58
+                7.206                9.557                   16.16
+                6.848                9.052                   43.81
+                6.411                8.414                   25.37
+                8.144               12.491                   44.78
+                8.181               12.521                   38.79
+
+Spatial table saved: TRUE 
+Distance summary saved: TRUE 
+
+Running: 17_check_largest_distances.R 
+Five largest distances:
+      object_id region_id area_pixels x_column y_row DNA1_mean
+   E-Zone1__748   E-Zone1          22    2.227 108.3   9.09091
+  C-Zone1__3402   C-Zone1          20  847.900 801.3   8.95000
+  C-Zone1__3685   C-Zone1          83  253.807 881.0   0.01205
+  G-Zone2b__779  G-Zone2b          75  426.720 347.5  11.06667
+ A-Zone1a__3301  A-Zone1a          25    6.040 995.6   9.40000
+ nearest_object_id nearest_distance_pixels touches_image_edge
+     E-Zone1__1790                  236.90               TRUE
+     C-Zone1__3235                   73.26              FALSE
+     C-Zone1__3556                   52.71              FALSE
+     G-Zone2b__786                   44.78              FALSE
+    A-Zone1a__3333                   44.44              FALSE
+ distance_to_image_border_pixels neighbour_circle_within_image
+                           1.727                         FALSE
+                          48.600                         FALSE
+                         253.307                          TRUE
+                          63.007                          TRUE
+                           5.540                         FALSE
+
+Diagnostic table saved: TRUE 
+
+Running: 18_view_largest_distance.R 
+Yellow circle: E-Zone1__748 
+Cyan circle: E-Zone1__1790 
+Figure saved: TRUE 
+
+Running: 19_review_low_DNA_object.R 
+Target: C-Zone1__3685 
+Area in pixels: 83 
+Mean DNA1 signal: 0.01204819 
+Pixels with DNA1 above zero: 1 
+Figure saved: TRUE 
+
+Running: 20_check_flagged_DNA_channels.R 
+     object_id channel area_pixels mean_signal pixels_above_zero
+  E-Zone1__748    DNA1          22     9.09091                 4
+  E-Zone1__748    DNA2          22    16.27273                 5
+ C-Zone1__3685    DNA1          83     0.01205                 1
+ C-Zone1__3685    DNA2          83     0.03614                 3
+ maximum_signal
+            106
+            162
+              1
+              1
+
+DNA checks saved: TRUE 
+
+Running: 21_check_boundary_sensitivity.R 
+   region_id all_objects circle_inside_objects baseline_median_pixels
+    A-Zone1a        3784                  3745                  5.924
+    A-Zone1b        1711                  1669                  6.152
+ A-Zone2cbis        2372                  2301                  5.952
+     C-Zone1        5501                  5394                  7.001
+     C-Zone2        3788                  3698                  7.174
+     E-Zone1        8305                  8201                  6.555
+    E-Zone2a        3763                  3713                  6.465
+    E-Zone2b         839                   797                  6.503
+    E-Zone2c        1934                  1843                  6.901
+     G-Zone1        6989                  6913                  6.415
+    G-Zone2a        2395                  2377                  6.098
+    G-Zone2b         855                   807                  6.902
+    G-Zone2c        1546                  1480                  7.070
+ circle_inside_median_pixels
+                       5.915
+                       6.117
+                       5.945
+                       6.989
+                       7.164
+                       6.555
+                       6.465
+                       6.499
+                       6.895
+                       6.399
+                       6.094
+                       6.822
+                       7.045
+
+Sensitivity table saved: TRUE 
+
+Running: 22_plot_distance_sensitivity.R 
+
+E-Zone1 distance summaries:
+                 scenario number_of_objects median_distance_pixels
+              all_objects              8305                  6.555
+ no_edge_touching_objects              8200                  6.559
+  neighbour_circle_inside              8201                  6.555
+ maximum_distance_pixels
+                  236.90
+                   39.59
+                   39.59
+
+Sensitivity figure saved: TRUE 
+
+Running: 23_summarise_signal_sensitivity.R 
+ marker                 scenario regions_compared median_absolute_change
+   CD68 no_edge_touching_objects               13              0.0023104
+    CD3 no_edge_touching_objects               13              0.0013384
+   CD31 no_edge_touching_objects               13              0.0009009
+   CD68  neighbour_circle_inside               13              0.0037689
+    CD3  neighbour_circle_inside               13              0.0017094
+   CD31  neighbour_circle_inside               13              0.0009009
+ largest_absolute_change largest_change_region
+                0.081950              E-Zone2b
+                0.008216              E-Zone2b
+                0.009852              G-Zone2c
+                0.115139              E-Zone2b
+                0.008065              E-Zone2b
+                0.021222              G-Zone2c
+
+Region changes saved: TRUE 
+Sensitivity summary saved: TRUE 
+
+Running: 24_plot_region_distances.R 
+ patient_id number_of_regions median_of_region_medians minimum_region_median
+   Patient1                 3                    5.952                 5.924
+   Patient3                 2                    7.088                 7.001
+   Patient5                 4                    6.529                 6.465
+   Patient6                 4                    6.659                 6.098
+ maximum_region_median
+                 6.152
+                 7.174
+                 6.901
+                 7.070
+
+Distance figure saved: TRUE 
+Patient distance summary saved: TRUE 
+
+Reproducibility comparisons:
+                                                  file
+ data_processed/active_object_measurements_spatial.csv
+              results/active_region_signal_summary.csv
+             results/active_patient_signal_summary.csv
+            results/active_region_distance_summary.csv
+           results/active_patient_distance_summary.csv
+               results/active_boundary_sensitivity.csv
+ previous_table_available matches_previous
+                     TRUE             TRUE
+                     TRUE             TRUE
+                     TRUE             TRUE
+                     TRUE             TRUE
+                     TRUE             TRUE
+                     TRUE             TRUE
+
+RERUN COMPLETED SUCCESSFULLY
