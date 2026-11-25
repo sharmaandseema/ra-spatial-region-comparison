@@ -1,0 +1,14 @@
+"region_id","patient_id","expected_files","files_present","all_present"
+"A-Zone1a","Patient1",45,45,TRUE
+"A-Zone1b","Patient1",45,45,TRUE
+"A-Zone2cbis","Patient1",45,45,TRUE
+"C-Zone1","Patient3",45,45,TRUE
+"C-Zone2","Patient3",45,45,TRUE
+"E-Zone1","Patient5",45,45,TRUE
+"E-Zone2a","Patient5",45,45,TRUE
+"E-Zone2b","Patient5",45,45,TRUE
+"E-Zone2c","Patient5",45,45,TRUE
+"G-Zone1","Patient6",45,45,TRUE
+"G-Zone2a","Patient6",45,45,TRUE
+"G-Zone2b","Patient6",45,45,TRUE
+"G-Zone2c","Patient6",45,45,TRUE

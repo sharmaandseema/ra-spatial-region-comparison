@@ -1,0 +1,14 @@
+"region_id","patient_id","rows","columns","objects","median_area_pixels","zero_label_percent","edge_objects","edge_percent"
+"A-Zone1a","Patient1",1298,439,3784,43,70.4,25,0.7
+"A-Zone1b","Patient1",564,584,1711,45,75.5,27,1.6
+"A-Zone2cbis","Patient1",779,283,2372,43,48.6,60,2.5
+"C-Zone1","Patient3",1307,896,5501,54,73.7,86,1.6
+"C-Zone2","Patient3",1198,808,3788,53,78.2,64,1.7
+"E-Zone1","Patient5",1019,972,8305,57,49.4,105,1.3
+"E-Zone2a","Patient5",981,650,3763,56,65.8,43,1.1
+"E-Zone2b","Patient5",457,256,839,54,59.4,35,4.2
+"E-Zone2c","Patient5",529,584,1934,61,59.4,90,4.7
+"G-Zone1","Patient6",1261,797,6989,49,64.6,62,0.9
+"G-Zone2a","Patient6",643,497,2395,43,67.5,4,0.2
+"G-Zone2b","Patient6",410,530,855,51,79.6,29,3.4
+"G-Zone2c","Patient6",587,647,1546,52,78.2,53,3.4

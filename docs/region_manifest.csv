@@ -1,0 +1,14 @@
+"region_id","condition","patient_id","study_label","archive_folder","n_tiff","n_masks","pilot_region"
+"A-Zone1a","Active RA","Patient1","RA1 baseline","data_tiff/001-A-C/A-Zone1a",45,1,TRUE
+"A-Zone1b","Active RA","Patient1","RA1 baseline","data_tiff/001-A-C/A-Zone1b",45,1,FALSE
+"A-Zone2cbis","Active RA","Patient1","RA1 baseline","data_tiff/001-A-C/A-Zone2cbis",45,1,FALSE
+"C-Zone1","Active RA","Patient3","RA2 baseline","data_tiff/001-A-C/C-Zone1",45,1,TRUE
+"C-Zone2","Active RA","Patient3","RA2 baseline","data_tiff/001-A-C/C-Zone2",45,1,FALSE
+"E-Zone1","Active RA","Patient5","RA3 baseline","data_tiff/003-B-E/E-Zone1",45,1,FALSE
+"E-Zone2a","Active RA","Patient5","RA3 baseline","data_tiff/003-B-E/E-Zone2a",45,1,FALSE
+"E-Zone2b","Active RA","Patient5","RA3 baseline","data_tiff/003-B-E/E-Zone2b",45,1,FALSE
+"E-Zone2c","Active RA","Patient5","RA3 baseline","data_tiff/003-B-E/E-Zone2c",45,1,FALSE
+"G-Zone1","Active RA","Patient6","RA4 baseline","data_tiff/002-D-G/G-Zone1",45,1,FALSE
+"G-Zone2a","Active RA","Patient6","RA4 baseline","data_tiff/002-D-G/G-Zone2a",45,1,FALSE
+"G-Zone2b","Active RA","Patient6","RA4 baseline","data_tiff/002-D-G/G-Zone2b",45,1,FALSE
+"G-Zone2c","Active RA","Patient6","RA4 baseline","data_tiff/002-D-G/G-Zone2c",45,1,FALSE

@@ -1,0 +1,7 @@
+"marker","scenario","regions_compared","median_absolute_change","largest_absolute_change","largest_change_region"
+"CD68","no_edge_touching_objects",13,0.00231035810550595,0.0819495595614899,"E-Zone2b"
+"CD3","no_edge_touching_objects",13,0.00133836429308601,0.00821596244131501,"E-Zone2b"
+"CD31","no_edge_touching_objects",13,0.000900900900901003,0.00985221674876896,"G-Zone2c"
+"CD68","neighbour_circle_inside",13,0.00376885317146503,0.11513859275053,"E-Zone2b"
+"CD3","neighbour_circle_inside",13,0.00170940170940201,0.00806451612903303,"E-Zone2b"
+"CD31","neighbour_circle_inside",13,0.000900900900901003,0.021222249395397,"G-Zone2c"

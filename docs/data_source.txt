@@ -1,0 +1,5 @@
+Dataset: De Lima study synovial IMC images
+Zenodo record: https://zenodo.org/records/23392665
+Download URL: https://zenodo.org/records/23392665/files/DeLima2023-IMC-RAW.zip?download=1
+Expected archive MD5: 8be86adedb5832645fe20aabe7241012
+Original archive retained without modification.

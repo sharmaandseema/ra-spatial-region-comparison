@@ -1,0 +1,7 @@
+"file","previous_table_available","matches_previous"
+"data_processed/active_object_measurements_spatial.csv",TRUE,TRUE
+"results/active_region_signal_summary.csv",TRUE,TRUE
+"results/active_patient_signal_summary.csv",TRUE,TRUE
+"results/active_region_distance_summary.csv",TRUE,TRUE
+"results/active_patient_distance_summary.csv",TRUE,TRUE
+"results/active_boundary_sensitivity.csv",TRUE,TRUE
